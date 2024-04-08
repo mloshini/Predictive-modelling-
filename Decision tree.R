@@ -46,7 +46,7 @@ rpart.plot(decs_rpart)
 # Make predictions
 predict_rpart <- predict(decs_rpart, test_set, type = "class")
 # Evaluate the model
-confusionMatrix(predictions, test_set$label)
+confusionMatrix(predict_rpart, test_set$label)
 x=table(predict_rpart,test_set$label)
 # Calculate precision, recall, and F1 score 
 precision <- x[1,1] / (x[1,1] + x[2,1])
@@ -67,7 +67,7 @@ plot(decs_c50)
 # Make predictions 
 predict_c50 <- predict(decs_c50, test_set, type = "class")
 # Evaluate model 
-confusionMatrix(predictions, test_set$label)
+confusionMatrix(predict_c50, test_set$label)
 x1 <- table(predict_c50, test_set$label)
 # Calculate precision, recall, and F1 score
 precision <- x1[1,1] / (x1[1,1] + x1[2,1])
